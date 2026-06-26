@@ -1,0 +1,37 @@
+name: ClipHist
+options:
+  bundleIdPrefix: com.jhstecnologia
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+
+targets:
+  ClipHist:
+    type: application
+    platform: macOS
+    sources:
+      - path: ClipHist/Sources
+        type: group
+    resources:
+      - path: ClipHist/Resources/Assets.xcassets
+      - path: ClipHist/Resources/Info.plist
+        buildPhase: none
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jhstecnologia.ClipHist
+        PRODUCT_NAME: ClipHist
+        INFOPLIST_FILE: ClipHist/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: ClipHist/Resources/ClipHist.entitlements
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        ENABLE_HARDENED_RUNTIME: false
+        SWIFT_STRICT_CONCURRENCY: complete
+        COMBINE_HIDPI_IMAGES: true
+    entitlements:
+      path: ClipHist/Resources/ClipHist.entitlements
